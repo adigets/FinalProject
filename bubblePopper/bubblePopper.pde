@@ -45,9 +45,19 @@ void draw() {
 
 void mouseClicked() {
   cursor(HAND);
-  if (!(mouseX < 170 && mouseX > 70 && mouseY < 210 && mouseY > 110)) {
-    textSize(50);
-    fill(244, 66, 66);
-    text("You lose!", 200, 300);
+  if (mousePressed) {
+    if (mouseX < 170 && mouseX > 70 && mouseY < 210 && mouseY > 110) {
+      tar[0].gotTarget();
+    } else if (mouseX < 470 && mouseX > 370 && mouseY < 150 && mouseY > 50) {
+      tar[1].gotTarget2();
+    } else if (mouseX < 230 && mouseX > 130 && mouseY < 470 && mouseY > 370) {
+      tar[2].gotTarget3();
+    } else if (mouseX < 530 && mouseX > 430 && mouseY < 550 && mouseY > 450) {
+      tar[3].gotTarget4();
+    } else {
+      textSize(50);
+      fill(175, 59, 59);
+      text("You lose!", 200, 300);
+    }
   }
 }

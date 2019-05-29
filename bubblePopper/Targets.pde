@@ -84,4 +84,20 @@ public void yshow4() {
   fill(255, 213, 99);
   ellipse(x4, y4, ysize, ysize);
 }
+public void gotTarget() {
+  fill(156, 159, 163);
+  ellipse(x, y, size, size);
+}
+public void gotTarget2() {
+  fill(156, 159, 163);
+  ellipse(x2, y2, size, size);
+}
+public void gotTarget3() {
+  fill(156, 159, 163);
+  ellipse(x3, y3, size, size);
+}
+public void gotTarget4() {
+  fill(156, 159, 163);
+  ellipse(x4, y4, size, size);
+}
 }
