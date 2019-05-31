@@ -1,6 +1,8 @@
 Targets[] tar = new Targets[4];
 Bubbles[] b = new Bubbles[1000];
+private int score;
 void setup() {
+  cursor(HAND);
   surface.setSize(600, 600);
   for (int i = 0; i < tar.length; i++) {
     tar[i] = new Targets();
@@ -29,6 +31,12 @@ void draw() {
     b[i].bubblesshow();
   }
   mouseClicked();
+  for (int i = 0; i < tar.length; i++) {
+    tar[i].score();
+    textSize(36);
+    fill(244, 206, 66);
+    text("Your score is: " + score, 100, 100);
+  }
 }
 
 //void clickTarget() {
@@ -44,7 +52,6 @@ void draw() {
 //}
 
 void mouseClicked() {
-  cursor(HAND);
   if (mousePressed) {
     if (mouseX < 170 && mouseX > 70 && mouseY < 210 && mouseY > 110) {
       tar[0].gotTarget();
