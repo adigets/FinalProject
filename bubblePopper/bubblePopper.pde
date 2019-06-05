@@ -1,5 +1,6 @@
 Targets[] tar = new Targets[4];
 Bubbles[] b = new Bubbles[1000];
+Timer timer = new Timer(20000);
 private int score;
 void setup() {
   cursor(HAND);
@@ -10,6 +11,7 @@ void setup() {
   for (int i = 0; i < b.length; i++) {
     b[i] = new Bubbles();
   }
+  timer.start();
 }
 
 void draw() {
@@ -33,9 +35,12 @@ void draw() {
   mouseClicked();
   for (int i = 0; i < tar.length; i++) {
     tar[i].score();
+  }
+  if (timer.isFinished() == true) {
+    background(0, 0 , 0);
     textSize(36);
     fill(244, 206, 66);
-    text("Your score is: " + score, 100, 100);
+    text("Your score is: " + score, 125, 300);
   }
 }
 
