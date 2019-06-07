@@ -1,36 +1,40 @@
 # FinalProject
 
-# Project Title and purpose
+# Don't Pop the Bubbles!
 
-One Paragraph of project description goes here
+Try to hit the targets as much as you can, the closer to the center of the target, the more points you earn! Beware, however, for if you pop a bubble, it's game over!
 
-### Difficulties or opportunities you encountered along the way.
+### The Clicking Mechanics
 
-The toughest part was...
+The toughest part was trying to sort out how everything would work when the mouse was clicked. I couldn't get the "You Lose!" page to stay if you clicked anywhere but a target, and I couldn't figure out how to get the game to say "You Lose!" if you popped a bubble on the target. But, I figured it out with the help of a classmate!
 
 ### Most interesting piece of your code and explanation for what it does.
 
 ```Java
-void keyPressed() {
-if (keyCode == LEFT) {
-   tree= tree.getLeft();
-   System.out.println(tree.getValue());
-   String s=(String)tree.getValue();
-   fill(155);
-   textSize(50);
-} else if (keyCode == RIGHT) {
-   tree = tree.getRight();
-   System.out.println(tree.getValue());
-   String s=(String)tree.getValue();
-   fill(155);
-   textSize(50);
-} else if (tree.getLeft()==null&&tree.getRight()==null) {
-   System.out.println(tree.getValue());
-   tree=t.returnTree();
+public class Timer {
+  int savedTime;
+  int totalTime;
+  
+public Timer(int total) {
+  totalTime = total;
+}
+
+void start() {
+  savedTime = millis();
+}
+
+public boolean isFinished() {
+  int passedTime = millis() - savedTime;
+  if (passedTime > totalTime) {
+    return true;
+  } else {
+    return false;
+  }
 }
 }
 ```
-This is the code that moves down the tree as decisions are made. It gets each value from both left and right and also casts the value to a String. If the progressions arrives at the leaf nodes, those values are printed.
+This is the Timer class that creates the timer for the game. In the runner, I set the time to be 15 seconds, so basically you have 15 seconds to hit as many targets as possible and earn as many points as you can! An interesting thing about this is that the time is actually counted in milliseconds, so actually the timer is set to 15,000 milliseconds!
+
 ## Built With
 
 * [Processing](https://processing.org/) - The IDE used
