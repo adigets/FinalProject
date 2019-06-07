@@ -41,10 +41,9 @@ This is the Timer class that creates the timer for the game. In the runner, I se
 
 ## Authors
 
-* **Billie Thompson** 
+* **Tanvi Adige** 
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Miles Leska
+* Nyah Rudd
