@@ -1,10 +1,13 @@
 Targets[] tar = new Targets[4];
 Bubbles[] b = new Bubbles[1000];
-Timer timer = new Timer(20000);
+Timer timer = new Timer(15000);
 private int score;
+public boolean lost;
 void setup() {
   cursor(HAND);
   surface.setSize(600, 600);
+  ellipseMode(CENTER);
+  lost = false;
   for (int i = 0; i < tar.length; i++) {
     tar[i] = new Targets();
   }
@@ -37,27 +40,27 @@ void draw() {
     tar[i].score();
   }
   if (timer.isFinished() == true) {
-    background(0, 0 , 0);
+    background(0, 0, 0);
     textSize(36);
     fill(244, 206, 66);
     text("Your score is: " + score, 125, 300);
   }
+  if (lost) {
+    background(0, 0, 0);
+    textSize(50);
+    fill(175, 59, 59);
+    text("You lose!", 200, 300);
+  }
 }
-
-//void clickTarget() {
-//  cursor(ARROW);
-//  if ((mouseX < 600 && mouseX > 0) && (mouseY < 600 && mouseY > 0)) {
-//    cursor(HAND);
-//    ////if ((mouseClicked()&&(!((mouseX < 170 && mouseX > 70 && mouseY < 210 && mouseY > 110)))){
-//    ////  textSize(50);
-//    ////  fill(244, 66, 66);
-//    ////  text("You lose!", 200, 300);
-//    //}
-//  }
-//}
 
 void mouseClicked() {
   if (mousePressed) {
+    for (Bubbles i : b) {
+      if (i.getSize() >= Math.sqrt(((mouseX - i.getX())*(mouseX - i.getX())) + ((mouseY - i.getY())*(mouseY - i.getY())))) {
+        lost = true;
+        return;
+      }
+    }
     if (mouseX < 170 && mouseX > 70 && mouseY < 210 && mouseY > 110) {
       tar[0].gotTarget();
     } else if (mouseX < 470 && mouseX > 370 && mouseY < 150 && mouseY > 50) {
@@ -67,9 +70,7 @@ void mouseClicked() {
     } else if (mouseX < 530 && mouseX > 430 && mouseY < 550 && mouseY > 450) {
       tar[3].gotTarget4();
     } else {
-      textSize(50);
-      fill(175, 59, 59);
-      text("You lose!", 200, 300);
+      lost = true;
     }
   }
 }

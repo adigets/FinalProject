@@ -27,4 +27,15 @@ public void move() {
   }
 }
 
+public double getSize() {
+  return size/2;
+}
+
+public int getX() {
+  return num;
+}
+
+public int getY() {
+  return val;
+} 
 }

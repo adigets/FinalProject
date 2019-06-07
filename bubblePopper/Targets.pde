@@ -101,6 +101,7 @@ public void gotTarget4() {
   fill(156, 159, 163);
   ellipse(x4, y4, size, size);
 }
+
 void score() {
   if (mousePressed) {
     if ((mouseX <= 135 && mouseX >= 105 && mouseY <= 175 && mouseY >= 145) || (mouseX <= 435 && mouseX >= 405 && mouseY <= 115 && mouseY >= 85) || (mouseX <= 195 && mouseX >= 165 && mouseY <= 435 && mouseY >= 405) || (mouseX <= 495 && mouseX >= 465 && mouseY <= 515 && mouseY >= 485)) {
